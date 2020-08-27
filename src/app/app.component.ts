@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { title } from 'process';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Lista zadań';
+  // klucz jest stringiem a wartość przypisana do klucza jest stringiem lub datą
+  config: {[key: string]: string | Date} = null;
 
-  getFooter():String {
-    return '© Lista zadań zbudowana w Angularze.';
-  }
+  constructor() {
 
-  getDate() {
-    return new Date();
+    setTimeout( ()=>{
+      this.config = {
+        title: 'Lista zadań',
+        footer: '@ LIsta zadań zbudowana w Angularze',
+        date: new Date()
+      };
+    },500);
   }
 }
