@@ -13,9 +13,9 @@
     </div>
 
     <div class="row">
-      <input class="col s8"  type="text" placeholder="Dodaj zadanie i datę wykonania"/>
-      <input class="col s2 disabled" type="date"/>
-      <button class="btn-floating" (click)="createTask()">+
+      <input class="col s8" #nameInput type="text" placeholder="Dodaj zadanie i datę wykonania"/>
+      <input class="col s2 disabled" #inputDeadLine type="date"/>
+      <button class="btn-floating" (click)="createTask(nameInput.value,inputDeadLine.value); nameInput.value ='';inputDeadLine.value=''; nameInput.focus() ">+
       </button>
     </div>
 
