@@ -11,6 +11,9 @@ export class AppComponent {
   // klucz jest stringiem a wartość przypisana do klucza jest stringiem lub datą
   config: {[key: string]: string | Date} = null;
 
+  taskName = 'Sugerowane zadanie codzienne: np. sprzątanie';
+  taskDate = '';
+
   tasks: Task[] = [
     {
       name: 'Siłownia',
@@ -44,12 +47,14 @@ export class AppComponent {
     this.tasks = [];
   }
 
-  createTask(name: string, date: string) {
+  createTask() {
     const task: Task = {
-      name,
-      deadline: date,
+      name: this.taskName,
+      deadline: this.taskDate,
       done: false 
     };
     this.tasks.push(task);
+    this.taskName = '';
+    this.taskDate = '';
   }
 }
